@@ -1,31 +1,14 @@
-import { Box, Grid, Show, GridItem } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react';
+import LeftSidePanel from '../components/LeftSidePanel';
+import RightSidePanel from '../components/RightSidePanel';
 
 const DashboardPage = () => {
   return (
-    <Grid
-    templateAreas={`"header header"
-                    "nav main"
-                    "nav footer"`}
-    gridTemplateRows={'50px 1fr 30px'}
-    gridTemplateColumns={'150px 1fr'}
-    h='200px'
-    gap='1'
-    color='blackAlpha.700'
-    fontWeight='bold'
-  >
-    <GridItem pl='2' bg='orange.300' area={'header'}>
-      Header
-    </GridItem>
-    <GridItem pl='2' bg='pink.300' area={'nav'}>
-      Nav
-    </GridItem>
-    <GridItem pl='2' bg='green.300' area={'main'}>
-      Main
-    </GridItem>
-    <GridItem pl='2' bg='blue.300' area={'footer'}>
-      Footer
-    </GridItem>
-  </Grid>)
-}
+    <Flex h="90vh">
+      <LeftSidePanel />
+      <RightSidePanel />
+    </Flex>
+  );
+};
 
-export default DashboardPage
+export default DashboardPage;

@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <HStack>
       <Link to="/">
-        <Image src={logo} boxSize="40px" objectFit='cover' />
+        <Image src={logo} boxSize="60px" objectFit="cover" />
       </Link>
       <ColorModeSwitch />
     </HStack>
