@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import Auth from '../../entities/auth';
+import Auth from '../../entities/Auth';
 
 interface AuthStore {
   user: Auth | null;

@@ -1,16 +1,21 @@
 import {
+  Box,
   Button,
+  Card,
+  CardBody,
+  Center,
   FormControl,
   Heading,
   Input,
-  VStack,
+  Stack,
   Text,
+  VStack,
 } from '@chakra-ui/react';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FieldValues, useForm } from 'react-hook-form';
-import useAuthStore from '../  state-management/auth/store';
+import { useForm } from 'react-hook-form';
 import { Navigate } from 'react-router-dom';
+import { z } from 'zod';
+import useAuthStore from '../  state-management/auth/store';
 
 const schema = z.object({
   username: z
@@ -39,46 +44,60 @@ const LoginPage = () => {
   if (user) return <Navigate replace to="/dashboard" />;
 
   return (
-    <VStack
-      onSubmit={handleSubmit(onSubmit)}
-      as="form"
-      mx="auto"
-      w={{ base: '90%', md: 500 }}
-      h="100vh"
-      justifyContent="center"
-    >
-      <Heading>Sign up</Heading>
-      <FormControl>
-        <FormControl>Username</FormControl>
-        <Input
-          {...register('username', {})}
-          name="username"
-          placeholder="Enter username..."
-        />
-        {errors.username && (
-          <Text color="red.500">{errors.username.message}</Text>
-        )}
-      </FormControl>
-      <FormControl>
-        <FormControl>Password</FormControl>
-        <Input
-          {...register('password')}
-          name="password"
-          placeholder="Enter password..."
-        />
-        {errors.password && (
-          <Text color="red.500">{errors.password.message}</Text>
-        )}
-      </FormControl>
-      <Button
-        disabled={!isValid}
-        type="submit"
-        variant="outline"
-        colorScheme="teal"
-      >
-        Create acc
-      </Button>
-    </VStack>
+    <Center>
+      <Box>
+        <Stack spacing="4">
+          <VStack spacing="2" mt={10}>
+            <Heading as="h1" fontSize="24px" fontWeight="300">
+              CAMIS ADMIN
+            </Heading>
+            <Heading as="h2" fontSize="2xl">
+              Sign in
+            </Heading>
+          </VStack>
+          <Card w="400px" borderColor="#d8dee4" variant="outline">
+            <CardBody>
+              <Stack as="form" onSubmit={handleSubmit(onSubmit)} spacing="4">
+                <FormControl>
+                  <FormControl>Username</FormControl>
+                  <Input
+                    {...register('username', {})}
+                    name="username"
+                    placeholder="Enter username..."
+                  />
+                  {errors.username && (
+                    <Text color="red.500">{errors.username.message}</Text>
+                  )}
+                </FormControl>
+                <FormControl>
+                  <FormControl>Password</FormControl>
+                  <Input
+                    {...register('password')}
+                    name="password"
+                    placeholder="Enter password..."
+                  />
+                  {errors.password && (
+                    <Text color="red.500">{errors.password.message}</Text>
+                  )}
+                </FormControl>
+                <Box>
+                  <Button
+                    disabled={!isValid}
+                    type="submit"
+                    color="#fff"
+                    colorScheme="teal"
+                    size="sm"
+                    _hover={{ bg: '#2c974b' }}
+                  >
+                    Sign in
+                  </Button>
+                </Box>
+              </Stack>
+            </CardBody>
+          </Card>
+        </Stack>
+      </Box>
+    </Center>
   );
 };
 

@@ -1,4 +1,4 @@
-export default interface Auth {
+export default interface Auth__Interface {
   username: string;
   password: string;
 }

@@ -3,7 +3,7 @@ import FunctionList from './LeftSideMenuList';
 
 const LeftSidePanel = () => {
   return (
-    <Flex direction="column" w="20%" paddingX={5}>
+    <Flex direction="column" w="18%" paddingX={5} paddingY={12}>
       <FunctionList />
       <Spacer />
       <Flex gap={2} direction="row">

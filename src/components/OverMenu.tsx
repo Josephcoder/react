@@ -11,9 +11,7 @@ const OverMenu = () => {
   return (
     <Menu>
       <MenuButton>
-        <Button variant="link">
-          <Avatar as="span" size="xs" src="https://bit.ly/broken-link" />
-        </Button>
+        <Avatar as="span" size="xs" src="https://bit.ly/broken-link" />
       </MenuButton>
       <MenuList p="2">
         <Flex flexDirection="column">
