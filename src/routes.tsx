@@ -5,6 +5,7 @@ import Layout from './pages/Layout';
 import LoginPage from './pages/LoginPage';
 import DistrictPage from './pages/DistrictPage';
 import ProfilePage from './pages/ProfilePage';
+import MarksPages from './pages/MarksPages';
 
 const router = createBrowserRouter([
   {
@@ -25,8 +26,8 @@ const router = createBrowserRouter([
         element: <DistrictPage />,
       },
       {
-        path: '/dashboard/profile',
-        element: <ProfilePage />,
+        path: '/dashboard/marks',
+        element: <MarksPages />,
       },
     ],
   },

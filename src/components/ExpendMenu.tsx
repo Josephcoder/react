@@ -16,9 +16,12 @@ import React from 'react';
 import { ImProfile } from 'react-icons/im';
 import { IoMdMenu } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import useAuthStore from '../  state-management/auth/store';
 
 const ExpendMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { logout } = useAuthStore();
+
   const btnRef = React.useRef();
   return (
     <>
@@ -69,7 +72,7 @@ const ExpendMenu = () => {
                   backgroundColor: '#f5f6f6',
                 }}
               >
-                <Link to="/">
+                <Link to="/" onClick={() => logout()}>
                   <ListIcon as={ImProfile} color="green.500" />
                   Logout
                 </Link>

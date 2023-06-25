@@ -59,7 +59,7 @@ const SchoolList = ({ title }: { title: string }) => {
                   <Th>Ownership</Th>
                 </Tr>
               </Thead>
-              <Tbody h="50vh">
+              <Tbody>
                 {data?.map((school, index) => (
                   <School
                     no={index + 1}

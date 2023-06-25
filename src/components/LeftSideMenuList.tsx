@@ -43,7 +43,7 @@ const LeftSideMenuList = () => {
             backgroundColor: '#f5f6f6',
           }}
         >
-          <Link to="/dashboard/district">
+          <Link to="/dashboard/marks">
             <ListIcon as={ImProfile} color="green.500" />
             Uploaded marks
           </Link>

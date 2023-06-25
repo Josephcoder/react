@@ -10,17 +10,17 @@ export const filterSchoolsTotalByOwnerShip = (
   const filteredTeachers =
     schoolCounts === undefined
       ? []
-      : schoolCounts.total_schools.map((total_school) => ({
+      : schoolCounts.total_schools?.map((total_school) => ({
           ...total_school,
           ...(schoolCounts.total_school_teachers.length > 0
-            ? schoolCounts.total_school_teachers.find(
+            ? schoolCounts.total_school_teachers?.find(
                 (total_school_teacher) =>
                   total_school.ownership_type ===
                   total_school_teacher.ownership_type
               )
             : { total_teachers: '0' }),
           ...(schoolCounts.total_school_students.length > 0
-            ? schoolCounts.total_school_students.find(
+            ? schoolCounts.total_school_students?.find(
                 (total_school_student) =>
                   total_school.ownership_type ===
                   total_school_student.ownership_type

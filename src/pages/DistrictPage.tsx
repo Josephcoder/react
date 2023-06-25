@@ -13,7 +13,7 @@ const DistrictPage = () => {
           }}
           templateColumns={{
             base: '1fr',
-            lg: '150px 1fr',
+            lg: '200px 1fr',
           }}
           gap="5"
         >

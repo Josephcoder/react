@@ -7,13 +7,17 @@ import {
   HStack,
   Heading,
   Icon,
+  Stat,
+  StatHelpText,
+  StatLabel,
+  StatNumber,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { MdOutlineSchool } from 'react-icons/md';
-import { SchoolData } from '../entities/School';
+import { OwnerShipCount__Interface } from '../entities/School';
 interface Props {
-  schoolData: SchoolData;
+  schoolData: OwnerShipCount__Interface;
 }
 
 const MiniStatistics = ({ schoolData }: Props) => {
@@ -22,72 +26,30 @@ const MiniStatistics = ({ schoolData }: Props) => {
   return (
     <Card>
       <CardBody>
-        <HStack flexDirection="row" gap="10" justifyContent="space-around">
-          <Flex>
-            <Box>
-              <Heading
-                fontSize="md"
-                color="gray.400"
-                fontWeight="bold"
-                pb=".1rem"
-              >
-                {schoolData.ownership_type === 'GOVERNMENT_AIDED'
-                  ? 'GOV AIDED'
-                  : schoolData.ownership_type}
-              </Heading>
-              <HStack mt="2">
-                <Badge
-                  as="span"
-                  fontSize="md"
-                  paddingX="1"
-                  bg="teal"
-                  color="#fff"
-                >
-                  {schoolData.total_school}
-                </Badge>
-                <Text>Schools</Text>
-              </HStack>
-              <HStack mt="2">
-                <Badge
-                  as="span"
-                  fontSize="md"
-                  paddingX="1"
-                  bg="teal"
-                  color="#fff"
-                >
-                  {schoolData.total_teachers}
-                </Badge>
-                <Text>Teachers</Text>
-              </HStack>
-              <HStack mt="2">
-                <Badge
-                  as="span"
-                  fontSize="md"
-                  paddingX="1"
-                  bg="teal"
-                  color="#fff"
-                >
-                  {schoolData.total_students}
-                </Badge>
-                <Text>Students</Text>
-              </HStack>
-            </Box>
-          </Flex>
-          <Flex
-            alignItems={'center'}
-            justifyContent={'center'}
-            borderRadius={'12px'}
-          >
-            <Icon
-              as={MdOutlineSchool}
-              h="45px"
-              w="45px"
-              bg={iconTeal}
-              p="1"
-              borderRadius="12px"
-            />
-          </Flex>
-        </HStack>
+        <Flex>
+          <Stat>
+            <StatLabel>
+              {schoolData.ownership_type === 'GOVERNMENT_AIDED'
+                ? 'GOV AIDED'
+                : schoolData.ownership_type}
+            </StatLabel>
+            <Flex justifyContent="space-between">
+              <Box>
+                <StatNumber>{schoolData.total_school}</StatNumber>
+                <StatHelpText>Schools</StatHelpText>
+              </Box>
+
+              <Box>
+                <StatNumber>{schoolData.total_teachers}</StatNumber>
+                <StatHelpText>Teachers</StatHelpText>
+              </Box>
+              <Box>
+                <StatNumber>{schoolData.total_students}</StatNumber>
+                <StatHelpText>Students</StatHelpText>
+              </Box>
+            </Flex>
+          </Stat>
+        </Flex>
       </CardBody>
     </Card>
   );
